@@ -16,13 +16,8 @@ parameters {
                 steps {
                    
                         script {
-                                bat "mvn clean install -Dtags=\"${tags}\" -Denv=\"${ENV}\""
+                                sh "mvn clean install -Dtags=\"${tags}\" -Denv=\"${ENV}\""
 
-                        }
-                        post {
-                            always {
-                                junit '**/surefire-reports/*.xml'
-                            }
                         }
                     
                 }
