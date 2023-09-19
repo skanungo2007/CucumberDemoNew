@@ -149,7 +149,7 @@
 
 							<skip>false</skip>
 
-							<outputDirectory>target/cucumber-reports</outputDirectory>
+							<outputDirectory>target/cucumber-reports/</outputDirectory>
 							<inputDirectory>target/cucumber-reports</inputDirectory>
 							<buildNumber>1</buildNumber>
 							<jsonFiles>
