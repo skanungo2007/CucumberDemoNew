@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="INFO">
+    <Appenders>
+        <Console name="ConsoleAppender" target="SYSTEM_OUT">
+            <PatternLayout pattern="%d{HH:mm:ss.SSS} - %-5level - %logger{36} - %msg%n" />
+        </Console>
+        
+        <File name="FileAppender" fileName="logs/currentLog.log" immediateFlush="true" append="false">
+            <PatternLayout pattern="%d{yyy-MM-dd HH:mm:ss.SSS} - [%t] - %-5level - %logger{36} - %msg%n"/>
+        </File>
+        
+        <RollingFile name="LogToRollingFile" fileName="logs/fullLog.log" filePattern="fullLog-%d{yyyy-MM-dd}.log">
+            <PatternLayout>
+                <pattern>%d{yyy-MM-dd HH:mm:ss.SSS} - [%t] - %-5level - %logger{36} - %msg%n</pattern>
+            </PatternLayout>
+            <Policies>
+                <SizeBasedTriggeringPolicy size="10 MB"/>
+            </Policies>
+        </RollingFile>
+        
+         <File name="htmlLogger" fileName="logs/app-info.html" immediateFlush="true" append="false">
+            <HTMLLayout charset="UTF-8" locationInfo="true" />
+        </File>
+    </Appenders>
+    <Loggers>
+        <Root level="debug">
+            <AppenderRef ref="ConsoleAppender" />
+            <AppenderRef ref="FileAppender"/>
+            <AppenderRef ref="LogToRollingFile"/>
+            <AppenderRef ref="htmlLogger"/>
+        </Root>
+    </Loggers>
+</Configuration>
