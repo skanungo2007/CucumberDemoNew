@@ -1,6 +1,6 @@
 pipeline {
  agent {
-  label ""
+  label "master"
  }
 parameters {
 
@@ -16,12 +16,8 @@ parameters {
                 steps {
                    
                         script {
-                            
-								sh "pwd"
-								sh "ls -la"
-                                sh "mvn clean install -Dtags=\"${tags}\" -Denv=\"${ENV}\""
-                                sh "ls -la target/json"
-                            
+                                bat "mvn clean install -Dtags=\"${tags}\" -Denv=\"${ENV}\""
+
                         }
                         post {
                             always {
