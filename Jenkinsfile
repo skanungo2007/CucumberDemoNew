@@ -19,6 +19,11 @@ parameters {
                                 sh "mvn clean install -Dtags=\"${tags}\" -Denv=\"${ENV}\""
 
                         }
+                        post {
+                            always {
+                                junit '**/surefire-reports/*.xml'
+                            }
+                        }
                     
                 }
             }
