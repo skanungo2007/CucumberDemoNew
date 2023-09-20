@@ -33,15 +33,5 @@ parameters {
 
 
      }
-
-     failure {
-
-
-                    mail to: "${params.MailingList},${env.DEFUALT_MAIL_LIST}", subject: "Job ${env.JOB_NAME} failed", body: "Check the URL below for more info\n\n${env.BUILD_URL}cucumber-html-reports/overview-features.html"
-       }
-       success {
-                    mail to: "${params.MailingList},${env.DEFUALT_MAIL_LIST}", subject: "Job ${env.JOB_NAME} pass", body: "Check the URL below for more info\n\n${env.BUILD_URL}cucumber-html-reports/overview-features.html"
-
-                }
    }
  }
